@@ -30,6 +30,7 @@
     "react-native-maps": "^0.25.0",
     "react-native-modal-dropdown": "^0.6.2",
     "react-native-progress-bar-animated": "^1.0.6",
+    "react-native-week-view": "0.0.9",
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.3",
     "redux": "^4.0.4",

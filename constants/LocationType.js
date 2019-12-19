@@ -5,6 +5,7 @@ export const LocationType = {
 
 export const GetLocationType = typeStr => {
     let type = typeStr.toLowerCase().trim();
+    alert(type);
     if ( type === "fixed") {
         return LocationType.FIXED;
     }
