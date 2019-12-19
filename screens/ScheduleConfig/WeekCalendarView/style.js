@@ -8,14 +8,25 @@ import {
 } from '../../../constants'
 
 export const WeekCalendarViewStyle = StyleSheet.create({
+  // container: {
+  //   //...StyleSheet.absoluteFillObject,
+  //   flex: 1,
+  //   width: Dimensions.get('window').width - 10,
+  //   flexDirection: 'column',
+  //   //backgroundColor: 'pink',
+  // }
+
   container: {
-    //...StyleSheet.absoluteFillObject,
     flex: 1,
-    width: Dimensions.get('window').width - 10,
-    flexDirection: 'column',
-    //backgroundColor: 'pink',
-  }
+    backgroundColor: '#FFF',
+    paddingTop: 22,
+  },
+  headerStyle: {
+    backgroundColor: '#4286f4',
+  },
+
 });
+
 
 export const mapStyle = StyleSheet.create({
   container: {
