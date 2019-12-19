@@ -8,13 +8,6 @@ import {
 } from '../../../constants'
 
 export const WeekCalendarViewStyle = StyleSheet.create({
-  // container: {
-  //   //...StyleSheet.absoluteFillObject,
-  //   flex: 1,
-  //   width: Dimensions.get('window').width - 10,
-  //   flexDirection: 'column',
-  //   //backgroundColor: 'pink',
-  // }
 
   container: {
     flex: 1,
@@ -24,26 +17,11 @@ export const WeekCalendarViewStyle = StyleSheet.create({
   headerStyle: {
     backgroundColor: '#4286f4',
   },
+  changeWeekButton: {
+    position: 'absolute',
+    bottom: 35,
+    backgroundColor: '#333333'
+  }
 
 });
 
-
-export const mapStyle = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-    backgroundColor: Theme.COLORS.WHITE,
-    marginBottom: 5
-  },
-  innerContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    borderColor: Theme.COLORS.PRIMARY,
-    borderWidth: 2
-  },
-  map: {
-    width: Dimensions.get('window').width - 15,
-  },
-})

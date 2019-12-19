@@ -36,6 +36,10 @@ class Schedule extends React.Component {
     this.props.fetchScheduleType(1);
   }
 
+  saveData = async () => {
+
+  }
+
   renderShowActivity(busy) {
     return (
       <ProgressBarAnimated
@@ -73,6 +77,7 @@ class Schedule extends React.Component {
             scheduleType === ScheduleType.WEEK &&
             <WeekCalendarView
             />
+            
           }
 
           {
@@ -80,7 +85,7 @@ class Schedule extends React.Component {
             <MonthCalendarView
             />
           }
-        </View>
+          </View>
       </View>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View,
   Alert,
+  Button
 } from 'react-native';
 
 import {
@@ -17,40 +18,40 @@ addLocale('fr', {
   weekdaysShort: 'Sun._Mon._Tue._Wed._Thu._Fri._Sat.'.split('_'),
 });
 
-  selectedDate = new Date();
+selectedDate = new Date();
 
-  generateDates = (hours, minutes) => {
-    const date = new Date();
-    date.setHours(date.getHours() + hours);
-    if (minutes != null) {
-      date.setMinutes(minutes);
-    }
-    return date;
-  };
+generateDates = (hours, minutes) => {
+  const date = new Date();
+  date.setHours(date.getHours() + hours);
+  if (minutes != null) {
+    date.setMinutes(minutes);
+  }
+  return date;
+};
 
-    const events = [
-      {
-        id: 1,
-        description: 'Event 1',
-        startDate: this.generateDates(0),
-        endDate: this.generateDates(2),
-        color: 'blue',
-      },
-      {
-        id: 2,
-        description: 'Event 2',
-        startDate: this.generateDates(1),
-        endDate: this.generateDates(4),
-        color: 'red',
-      },
-      {
-        id: 3,
-        description: 'Event 3',
-        startDate: this.generateDates(-5),
-        endDate: this.generateDates(-3),
-        color: 'green',
-      },
-    ];
+const events = [
+  {
+    id: 1,
+    description: 'Event 1',
+    startDate: this.generateDates(0),
+    endDate: this.generateDates(2),
+    color: 'blue',
+  },
+  {
+    id: 2,
+    description: 'Event 2',
+    startDate: this.generateDates(1),
+    endDate: this.generateDates(4),
+    color: 'red',
+  },
+  {
+    id: 3,
+    description: 'Event 3',
+    startDate: this.generateDates(-5),
+    endDate: this.generateDates(-3),
+    color: 'green',
+  },
+];
 
 
 
@@ -58,16 +59,17 @@ export default WeekSection = props => {
 
   return (
     <View style={WeekCalendarViewStyle.container}>
-    <WeekView
-      events={events}
-      selectedDate={this.selectedDate}
-      numberOfDays={3}
-      onEventPress={(event) => Alert.alert('eventId:' + event.id)}
-      headerStyle={WeekCalendarViewStyle.headerStyle}
-      formatDateHeader="MMM D"
-      locale="fr"
-    />
-  </View>
+      <WeekView
+        events={events}
+        selectedDate={this.selectedDate}
+        numberOfDays={3}
+        onEventPress={(event) => Alert.alert('eventId:' + event.id)}
+        headerStyle={WeekCalendarViewStyle.headerStyle}
+        formatDateHeader="MMM D"
+        locale="fr"
+      />
+      <Button color="#0e0e0e" title="change weeklly schedule"></Button>
+    </View>
   )
 
 }
