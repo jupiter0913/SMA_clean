@@ -53,10 +53,6 @@ class Schedule extends React.Component {
     let { 
       scheduleType,
       busy,
-      addresses, 
-      navigation, 
-      addEmptySchedule,
-      removeSchedule
     } = this.props;
 
     return (
@@ -76,23 +72,13 @@ class Schedule extends React.Component {
           {
             scheduleType === ScheduleType.WEEK &&
             <WeekCalendarView
-              onAddressFocus={({ scheduleId, address }) => {
-                navigation.navigate("Search", { scheduleId, address })
-              }}
-              navigation={navigation}
-              addresses={addresses} />
+            />
           }
 
           {
             scheduleType === ScheduleType.MONTH &&
             <MonthCalendarView
-              onAddressFocus={({ scheduleId, address }) => {
-                navigation.navigate("Search", { scheduleId, address })
-              }}
-              busy={busy}
-              onAddressRemove={ scheduleId => removeSchedule(1, scheduleId) }
-              addEmptySchedule={addEmptySchedule}
-              addresses={addresses} />
+            />
           }
         </View>
       </View>

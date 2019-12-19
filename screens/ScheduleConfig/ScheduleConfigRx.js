@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import withImmutablePropsToJS from 'with-immutable-props-to-js';
 import { 
     fetchScheduleTypeAsync,
-    fetchAddressesAsync,
+    // fetchAddressesAsync,
     setScheduleTypeAsync,
-    addEmptyScheduleAsync,
-    removeScheduleAsync
+    // addEmptyScheduleAsync,
+    // removeScheduleAsync
 } from '../../store'
 
 import Schedule from './ScheduleConfig';
@@ -15,7 +15,6 @@ function mapStateToProps({ schedule }) {
     return {
         busy: schedule.get('busy'),
         scheduleType: schedule.get('scheduleType'),
-        addresses: schedule.get('addresses'),
         failedReason: schedule.get('failedReason')
     };
 }
@@ -23,10 +22,7 @@ function mapStateToProps({ schedule }) {
 function mapDispatchToProps(dispatch) {
     const actions = {
         fetchScheduleType: fetchScheduleTypeAsync,
-        fetchAddresses: fetchAddressesAsync,
         setScheduleType: setScheduleTypeAsync,
-        addEmptySchedule: addEmptyScheduleAsync ,
-        removeSchedule: removeScheduleAsync
     };
     return bindActionCreators(actions, dispatch);
 }
