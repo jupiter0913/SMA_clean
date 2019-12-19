@@ -74,7 +74,7 @@ class Schedule extends React.Component {
             onChange={t => this.props.setScheduleType(1, t)} />
 
           {
-            scheduleType === ScheduleType.FIXED &&
+            scheduleType === ScheduleType.WEEK &&
             <WeekCalendarView
               onAddressFocus={({ scheduleId, address }) => {
                 navigation.navigate("Search", { scheduleId, address })
@@ -84,7 +84,7 @@ class Schedule extends React.Component {
           }
 
           {
-            scheduleType === ScheduleType.MOBILE &&
+            scheduleType === ScheduleType.MONTH &&
             <MonthCalendarView
               onAddressFocus={({ scheduleId, address }) => {
                 navigation.navigate("Search", { scheduleId, address })

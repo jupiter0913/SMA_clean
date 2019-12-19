@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import locationReducer from './LocationReducer';
+import locationReducer from './locationReducer';
+import scheduleReducer from './scheduleReducer';
 
 const rootReducer = combineReducers({
-    location: locationReducer
+    location: locationReducer,
+    schedule: scheduleReducer
 });
 
 export default rootReducer;

@@ -5,7 +5,6 @@ export const ScheduleType = {
 
 export const GetScheduleType = typeStr => {
     let type = typeStr.toLowerCase().trim();
-    alert(type);
     if ( type === "week") {
         return ScheduleType.WEEK;
     }

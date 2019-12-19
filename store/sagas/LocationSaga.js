@@ -4,8 +4,8 @@ import {
     takeLeading
 } from 'redux-saga/effects'
 
-import * as actions from '../actions';
-import { api } from '../../services';
+import * as actions from '../actions/LocationActions';
+import { api } from '../../services/LocationServices';
 
 // Our worker Saga: will perform the async increment task
 function* fetchLocationType({ accountId }) {
@@ -67,23 +67,11 @@ function* addEmptyLocation({ accountId }) {
   }
 }
 
-function* removeLocation({ accountId, locationId }) {
-  yield put(actions.removeLocationStarted());
-  try {
-    const addresses = yield call(api.removeAddress, { accountId, locationId } );
-    yield put(actions.removeLocationFinished(addresses));
-  } catch(error) {
-    yield put(actions.removeLocationFailed(error));
-  }
-}
-
-
 export function* watchLocationRequests() {
   yield takeLeading(actions.FETCH_LOCATION_TYPE_SAGA_ASYNC, fetchLocationType);
   yield takeLeading(actions.FETCH_ADDRESSES_SAGA_ASYNC, fetchAddresses);
   yield takeLeading(actions.SET_LOCATION_TYPE_SATA_ASYNC, setLocationType);
   yield takeLeading(actions.SET_LOCATION_SAGA_ASYNC, setLocation);
   yield takeLeading(actions.ADD_EMPTY_LOCATION_SAGA_ASYNC, addEmptyLocation);
-  yield takeLeading(actions.DELETE_LOCATION_SAGA_ASYNC, removeLocation);
 }
 

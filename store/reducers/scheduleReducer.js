@@ -1,19 +1,19 @@
 import { fromJS } from 'immutable';
-import * as actions from '../actions/LocationActions';
+import * as actions from '../actions/ScheduleActions';
 
 import { 
-    // LocationType, 
-    GetLocationType 
-} from '../../constants/LocationType'
+    // ScheduleType, 
+    GetScheduleType 
+} from '../../constants/ScheduleType'
 
 const initialState = {
     busy: false,
-    locationType: null,
+    scheduleType: null,
     addresses: null,
     failReason: null
 };
 
-const locationReducer = ( prevState = fromJS(initialState), action ) => {
+const scheduleReducer = ( prevState = fromJS(initialState), action ) => {
     switch (action.type) {
 
         /*
@@ -22,21 +22,21 @@ const locationReducer = ( prevState = fromJS(initialState), action ) => {
          * in the saga files 
          */
 
-        case actions.SET_LOCATION_TYPE_STARTED:
-        case actions.FETCH_LOCATION_TYPE_STARTED: {
+        case actions.SET_SCHEDULE_TYPE_STARTED:
+        case actions.FETCH_SCHEDULE_TYPE_STARTED: {
             return prevState
                 .set('busy', true)
-                .set('locationType', null)
+                .set('scheduleType', null)
                 .set('failReason', null);
         }
 
-        case actions.SET_LOCATION_TYPE_FINISHED: 
-        case actions.FETCH_LOCATION_TYPE_FINISHED: {
+        case actions.SET_SCHEDULE_TYPE_FINISHED: 
+        case actions.FETCH_SCHEDULE_TYPE_FINISHED: {
             try {
-                let type = GetLocationType(action.locationType)
+                let type = GetScheduleType(action.scheduleType)
                 return prevState
                     .set('busy', false)
-                    .set('locationType', type)
+                    .set('scheduleType', type)
                     .set('failReason', null);
 
             } catch (e) {
@@ -53,8 +53,8 @@ const locationReducer = ( prevState = fromJS(initialState), action ) => {
                 .set('failReason', null);
         }
 
-        case actions.DELETE_LOCATION_FINISHED:
-        case actions.ADD_EMPTY_LOCATION_FINISHED:
+        case actions.DELETE_SCHEDULE_FINISHED:
+        case actions.ADD_EMPTY_SCHEDULE_FINISHED:
         case actions.FETCH_ADDRESSES_FINISHED: {
             return prevState
                 .set('busy', false)
@@ -62,27 +62,27 @@ const locationReducer = ( prevState = fromJS(initialState), action ) => {
                 .set('failReason', null);
         }
 
-        case actions.DELETE_LOCATION_STARTED:
-        case actions.ADD_EMPTY_LOCATION_STARTED:
-        case actions.SET_LOCATION_STARTED: {
+        case actions.DELETE_SCHEDULE_STARTED:
+        case actions.ADD_EMPTY_SCHEDULE_STARTED:
+        case actions.SET_SCHEDULE_STARTED: {
             return prevState
                 .set('busy', true)
                 .set('failReason', null);
         }
 
-        case actions.SET_LOCATION_FINISHED: {
+        case actions.SET_SCHEDULE_FINISHED: {
             return prevState
                 .set('busy', false)
-                .setIn(['addresses', action.locationId], action.location)
+                .setIn(['addresses', action.scheduleId], action.schedule)
                 .set('failReason', null);
         }
 
-        case actions.SET_LOCATION_TYPE_FAILED:
-        case actions.FETCH_LOCATION_TYPE_FAILED:
-        case actions.ADD_EMPTY_LOCATION_FAILED:
+        case actions.SET_SCHEDULE_TYPE_FAILED:
+        case actions.FETCH_SCHEDULE_TYPE_FAILED:
+        case actions.ADD_EMPTY_SCHEDULE_FAILED:
         case actions.FETCH_ADDRESSES_FAILED: 
-        case actions.DELETE_LOCATION_FAILED:
-        case actions.SET_LOCATION_FAILED: {
+        case actions.DELETE_SCHEDULE_FAILED:
+        case actions.SET_SCHEDULE_FAILED: {
             return prevState
                 .set('busy', false)
                 .set('failReason', action.failReason);
@@ -94,4 +94,4 @@ const locationReducer = ( prevState = fromJS(initialState), action ) => {
     }
 }
 
-export default locationReducer;
+export default scheduleReducer;

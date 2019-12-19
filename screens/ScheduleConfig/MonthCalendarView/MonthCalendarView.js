@@ -80,7 +80,7 @@ class MonthCalendarView extends React.Component {
     render() {
         let {
             addresses,
-            addEmptyLocation,
+            addEmptySchedule,
             busy
         } = this.props;
 
@@ -104,7 +104,7 @@ class MonthCalendarView extends React.Component {
 
                 <View style={addBtnStyle.container}>
                     <SRoundButton
-                        onPress={addEmptyLocation}
+                        onPress={addEmptySchedule}
                         disabled={busy}>
                         <Text style={addBtnStyle.text}>+</Text>
                     </SRoundButton>
