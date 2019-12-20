@@ -1,145 +1,165 @@
-import React from 'react';
+// import React from 'react';
+// import {
+//     View,
+//     Text,
+//     FlatList,
+//     TouchableOpacity
+// } from 'react-native';
+
+// import {
+//     Ionicons
+// } from '@expo/vector-icons';
+
+// import {
+//     SText,
+//     SRoundButton,
+//     SAnimatedFlatlist
+// } from '../../../components'
+
+// import {
+//     scrollViewStyle,
+//     addBtnStyle
+// } from './style';
+
+// import {
+//     Theme
+// } from '../../../constants';
+
+
+// class MonthCalendarView extends React.Component {
+
+   
+
+//     render() {
+     
+//         return (
+//             <>
+//                 {
+
+//                 }
+
+//                 <View style={addBtnStyle.container}>
+//                     {
+
+//                     }
+//                 </View>
+
+//             </>
+//         )a
+        
+//     }
+
+// }
+
+// export default MonthCalendarView;
+
+
+import React, { Component } from 'react';
 import {
-    View,
-    Text,
-    FlatList,
-    TouchableOpacity
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Alert,
 } from 'react-native';
+// import TimeTableView, { genTimeBlock } from 'react-native-timetable';
+import TimeTableView,{ genTimeBlock } from '../../../components/STimetable';
+const events_data = [ 
+  {
+    title: "Math",
+    startTime: genTimeBlock("MON", 9),
+    endTime: genTimeBlock("MON", 10, 50),
+    location: "Classroom 403",
+    extra_descriptions: ["Kim", "Lee"],
+  },
+  {
+    title: "Math",
+    startTime: genTimeBlock("WED", 9),
+    endTime: genTimeBlock("WED", 10, 50),
+    location: "Classroom 403",
+    extra_descriptions: ["Kim", "Lee"],
+  },
+  {
+    title: "Physics",
+    startTime: genTimeBlock("MON", 11),
+    endTime: genTimeBlock("MON", 11, 50),
+    location: "Lab 404",
+    extra_descriptions: ["Einstein"],
+  },
+  {
+    title: "Physics",
+    startTime: genTimeBlock("WED", 11),
+    endTime: genTimeBlock("WED", 11, 50),
+    location: "Lab 404",
+    extra_descriptions: ["Einstein"],
+  },
+  {
+    title: "Mandarin",
+    startTime: genTimeBlock("TUE", 9),
+    endTime: genTimeBlock("TUE", 10, 50),
+    location: "Language Center",
+    extra_descriptions: ["Chen"],
+  },
+  {
+    title: "Japanese",
+    startTime: genTimeBlock("FRI", 9),
+    endTime: genTimeBlock("FRI", 10, 50),
+    location: "Language Center",
+    extra_descriptions: ["Nakamura"],
+  },
+  {
+    title: "Club Activity",
+    startTime: genTimeBlock("THU", 9),
+    endTime: genTimeBlock("THU", 10, 50),
+    location: "Activity Center",
+  },
+  {
+    title: "Club Activity",
+    startTime: genTimeBlock("FRI", 13, 30),
+    endTime: genTimeBlock("FRI", 14, 50),
+    location: "Activity Center",
+  },
+];
 
-import {
-    Ionicons
-} from '@expo/vector-icons';
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.numOfDays = 7;
+    this.pivotDate = genTimeBlock('mon');
+  }
+  
+  scrollViewRef = (ref) => {
+    this.timetableRef = ref;
+  };
 
-import {
-    SText,
-    SRoundButton,
-    SAnimatedFlatlist
-} from '../../../components'
+  onEventPress = (evt) => {
+    Alert.alert("onEventPress", JSON.stringify(evt));
+  };
 
-import {
-    scrollViewStyle,
-    addBtnStyle
-} from './style';
+  render() {
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <View style={styles.container}>
+          <TimeTableView
+            scrollViewRef={this.scrollViewRef}
+            events={events_data}
+            pivotTime={8}
+            pivotDate={this.pivotDate}
+            numberOfDays={this.numOfDays}
+            onEventPress={this.onEventPress}
+            headerStyle={styles.headerStyle}
+          />
+        </View>
+      </SafeAreaView>
+    );
+  }
+};
 
-import {
-    Theme
-} from '../../../constants';
-
-
-class MonthCalendarView extends React.Component {
-
-    // renderRemoveIcon = (scheduleId) => {
-
-    //     let {
-    //         busy,
-    //         onAddressRemove
-    //     } = this.props;
-
-    //     return (
-    //         <TouchableOpacity
-    //             disabled={busy}
-    //             onPress={() => {
-    //                 !busy &&
-    //                     onAddressRemove(scheduleId)
-    //             }} >
-    //             <Ionicons
-    //                 name="md-remove-circle"
-    //                 size={25}
-    //                 color={
-    //                     !busy ?
-    //                         Theme.COLORS.ERROR :
-    //                         Theme.COLORS.DISABLED_TEXT}
-    //             />
-    //         </TouchableOpacity>
-    //     )
-    // }
-
-    // renderTextInput = ({ key: scheduleId, value: schedule }) => {
-
-    //     let {
-    //         busy,
-    //         onAddressFocus
-    //     } = this.props;
-
-    //     let value = schedule ? schedule.address : null;
-
-    //     return (
-    //         <SText
-    //             //key={scheduleId}
-    //             value={value}
-    //             onPress={() =>
-    //                 onAddressFocus({
-    //                     scheduleId,
-    //                     address: schedule.address
-    //                 })}
-    //             disabled={busy}
-    //             icon={this.renderRemoveIcon(scheduleId)} />
-    //     );
-    // }
-
-    render() {
-        // let {
-        //     addresses,
-        //     addEmptySchedule,
-        //     busy
-        // } = this.props;
-
-        // if (!addresses) {
-        //     return null;
-        // }
-
-        // const data = Object.keys(addresses).map( scheduleId => ({
-        //     key: scheduleId,
-        //     value: addresses[scheduleId]
-        // }));
-
-        return (
-            <>
-                {/* <FlatList
-                    data={data}
-                    renderItem={({ item }) => this.renderTextInput(item)}
-                    keyExtractor={item => item.key}
-                    style={scrollViewStyle.container}
-                    contentContainerStyle={scrollViewStyle.contentContainer} /> */}
-
-                <View style={addBtnStyle.container}>
-                    {/* <SRoundButton
-                        onPress={addEmptySchedule}
-                        disabled={busy}>
-                        <Text style={addBtnStyle.text}>+</Text>
-                    </SRoundButton> */}
-                </View>
-
-            </>
-        )
-
-        /*
-
-                <FlatList
-                    data={Object.keys(addresses)}
-                    renderItem={({ item }) => this.renderTextInput(item, addresses[item])}
-                    keyExtractor={item => item}
-                    style={scrollViewStyle.container}
-                    contentContainerStyle={scrollViewStyle.contentContainer} />
-
-                <SAnimatedFlatlist
-                    items={Object.keys(addresses)}
-                    inAnimation={"fadeIn"}
-                    outAnimation={"fadeOut"}
-                    duration={500}
-                    rowItem={({item}) => (
-                        this.renderTextInput(item, addresses[item])
-                    )}
-                    keyExtractor={item => item}
-
-                    //keyExtractor={item => item}
-                    style={scrollViewStyle.container}
-                    //contentContainerStyle={scrollViewStyle.contentContainer} /> 
-                    />
-                    
-        */
-    }
-
-}
-
-export default MonthCalendarView;
+const styles = StyleSheet.create({
+  headerStyle: {
+    backgroundColor: '#81E1B8'
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#F8F8F8',
+  },
+});
