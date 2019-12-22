@@ -11,7 +11,7 @@ import Events from '../Events/Events';
 import Header from '../Header/Header';
 import styles from './TimeTableView.styles';
 
-export const TIME_LABELS_COUNT = 22;
+export const TIME_LABELS_COUNT = 24;
 
 export default class TimeTableView extends Component {
   constructor(props) {
@@ -58,6 +58,7 @@ export default class TimeTableView extends Component {
       pivotTime,
     } = this.props;
     const events = addColor(this.props.events);
+
     const { currentMoment } = this.state;
     // const dates = this.prepareDates(currentMoment, numberOfDays);
     const date = moment(currentMoment);
@@ -81,10 +82,7 @@ export default class TimeTableView extends Component {
                 </View>
               ))}
             </View>
-            <View
-              key={date}
-              style={styles.eventsContainer}
-            >
+            <View key={date} style={styles.eventsContainer}>
               <Events
                 pivotTime={pivotTime}
                 key={date}

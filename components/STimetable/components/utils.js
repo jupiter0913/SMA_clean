@@ -41,12 +41,10 @@ const genDayOfWeek = (DayOfWeekString) => {
 
 const genTimeBlock = (dayOfWeek, hours = 0, minutes = 0) => {
   const date = genDayOfWeek(dayOfWeek);
-  
   date.setHours(hours);
   if (minutes != null) {
     date.setMinutes(minutes);
   }
-
   return date;
 };
 

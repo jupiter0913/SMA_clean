@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   header: {
-    height: 21,
+    height: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     width: HeaderStyle.title.width,
   },
   eventsContainer: {
-    flex: 1, width: SCREEN_WIDTH - HeaderStyle.title.width,
+    width: SCREEN_WIDTH - HeaderStyle.title.width,
   },
 });
 
