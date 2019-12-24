@@ -180,7 +180,7 @@ export default class DayView extends React.PureComponent {
       >
         {this._renderLines()}
         {this._renderEvents()}
-        {this._renderRedLine()}
+        {/* {this._renderRedLine()} */}
       </ScrollView>
     )
   }
