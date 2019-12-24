@@ -1,7 +1,8 @@
 import React from 'react';
 import {
   Dimensions,
-  View
+  View,
+  Button
 } from 'react-native';
 
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
@@ -54,7 +55,7 @@ class Schedule extends React.Component {
   }
 
   render() {
-    let { 
+    let {
       scheduleType,
       busy,
     } = this.props;
@@ -77,7 +78,7 @@ class Schedule extends React.Component {
             scheduleType === ScheduleType.WEEK &&
             <WeekCalendarView
             />
-            
+
           }
 
           {
@@ -85,7 +86,10 @@ class Schedule extends React.Component {
             <MonthCalendarView
             />
           }
-          </View>
+        </View>
+        <View>
+          <Button color="#0e0e0e" title="change weeklly schedule" onPress={() => this.props.navigation.navigate('WeeklySchedule')}></Button>
+        </View>
       </View>
     )
   }

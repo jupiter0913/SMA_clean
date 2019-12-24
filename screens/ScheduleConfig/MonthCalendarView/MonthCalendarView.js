@@ -7,25 +7,25 @@ import {
   Button
 } from 'react-native';
 // import TimeTableView, { genTimeBlock } from 'react-native-timetable';
-import TimeTableView, { genTimeBlock} from '../../../components/STimetable';
-const events_data = [ 
+import TimeTableView, { genTimeBlock } from '../../../components/STimetable';
+const events_data = [
   {
-    title: "Math",
+    title: "Interview",
     startTime: genTimeBlock("MON", 5),
     endTime: genTimeBlock("MON", 6, 50),
-    location: "interview",
+    location: "interview room",
     extra_descriptions: ["Yuri"],
   },
 
   {
-    title: "Physics",
+    title: "Meeting",
     startTime: genTimeBlock("MON", 8),
-    endTime: genTimeBlock("MON", 8, 50),
+    endTime: genTimeBlock("MON", 8, 60),
     location: "Lab 404",
     extra_descriptions: ["Einstein"],
   },
   {
-    title: "Physics",
+    title: "Interview",
     startTime: genTimeBlock("WED", 9),
     endTime: genTimeBlock("WED", 9, 50),
     location: "Lab 404",
@@ -41,11 +41,11 @@ const events_data = [
 
   {
     title: "Club Activity",
-    startTime: genTimeBlock("THU",8),
+    startTime: genTimeBlock("THU", 8),
     endTime: genTimeBlock("THU", 10, 50),
     location: "Activity Center",
   },
- 
+
 ];
 
 export default class App extends Component {
@@ -54,7 +54,7 @@ export default class App extends Component {
     this.numOfDays = 7;
     this.pivotDate = genTimeBlock('mon');
   }
-  
+
   scrollViewRef = (ref) => {
     this.timetableRef = ref;
   };
@@ -64,8 +64,9 @@ export default class App extends Component {
   };
 
   render() {
+
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <TimeTableView
             scrollViewRef={this.scrollViewRef}
@@ -76,9 +77,6 @@ export default class App extends Component {
             onEventPress={this.onEventPress}
             headerStyle={styles.headerStyle}
           />
-        </View>
-        <View>
-        <Button color="#0e0e0e" title="change weeklly schedule"></Button>        
         </View>
       </SafeAreaView>
     );

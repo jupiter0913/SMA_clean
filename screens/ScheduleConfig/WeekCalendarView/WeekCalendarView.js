@@ -68,7 +68,7 @@ export default WeekSection = props => {
         formatDateHeader="MMM D"
         locale="fr"
       />
-      <Button color="#0e0e0e" title="change weeklly schedule"></Button>
+      {/* <Button color="#0e0e0e" title="change weeklly schedule"></Button> */}
     </View>
   )
 

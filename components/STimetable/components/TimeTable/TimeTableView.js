@@ -78,7 +78,7 @@ export default class TimeTableView extends Component {
             <View style={styles.timeColumn}>
               {this.times.map(time => (
                 <View key={time} style={styles.timeLabel}>
-                  <Text style={styles.timeText}>{time === 12 ? 12 : time % 12}</Text>
+  <Text style={styles.timeText}>{time === 12 ? 12 : time % 12}</Text>
                 </View>
               ))}
             </View>
