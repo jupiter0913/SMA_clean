@@ -94,7 +94,7 @@ WeekViewHeader.propTypes = {
 };
 
 WeekViewHeader.defaultProps = {
-  formatDate: 'dddd', // day of week
+  formatDate: 'ddd', // day of week
 };
 
 export default WeekViewHeader;

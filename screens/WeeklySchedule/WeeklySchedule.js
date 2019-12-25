@@ -3,7 +3,9 @@ import React from 'react'
 import {
     View,
     Dimensions,
-    Text
+    Text,
+    Modal,
+    Button
 } from 'react-native';
 
 import {
@@ -21,7 +23,7 @@ let { width } = Dimensions.get('window')
 this.state = {
     events: [
         { start: '2019-12-06 22:30:00', end: '2019-12-06 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-07 00:30:00', end: '2019-12-07 01:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2019-12-07 01:00:00', end: '2019-12-07 02:00:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-09 03:10:00', end: '2019-12-09 03:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-09 00:10:00', end: '2019-12-09 01:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-10 12:10:00', end: '2019-12-10 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' }
@@ -73,9 +75,21 @@ export const WeeklySchedule = props => {
                     scrollToFirst
                 />
                 <View style={styles.RoundBtn}>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>+</Text>
-                </SRoundButton>
+                    {/* <Modal
+                        animationType={"fade"}
+                        transparent={false}
+                        visible={this.state.isVisible}
+                        onRequestClose={() => { console.log("Modal has been closed.") }}>
+                        <View style={styles.modal}>
+                            <Text style={styles.text}>Modal is open!</Text>
+                            <Button title="Click To Close Modal" onPress={() => {
+                                this.setState({ isVisible: !this.state.isVisible })
+                            }} />
+                        </View>
+                    </Modal> */}
+                    <SRoundButton>
+                        <Text style={styles.Btntext}>+</Text>
+                    </SRoundButton>
                 </View>
             </View>
         </View>

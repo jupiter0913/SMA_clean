@@ -98,10 +98,10 @@ export default class DayView extends React.PureComponent {
             style={[styles.line, { top: offset * i, width: width - 20 }]}
           />
         ),
-        <View
-          key={`lineHalf${i}`}
-          style={[styles.line, { top: offset * (i + 0.5), width: width - 20 }]}
-        />
+        // <View
+        //   key={`lineHalf${i}`}
+        //   style={[styles.line, { top: offset * (i + 0.5), width: width - 20 }]}
+        // />
       ]
     })
   };

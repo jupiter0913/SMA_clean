@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const GREY_COLOR = '#E9EDF0';
-const ROW_HEIGHT = 60;
+const ROW_HEIGHT = 30;
 export { ROW_HEIGHT };
 export const CONTENT_OFFSET = 0;
 

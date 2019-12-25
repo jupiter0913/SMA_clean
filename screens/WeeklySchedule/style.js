@@ -1,9 +1,9 @@
-import {  
+import {
     StyleSheet
 } from 'react-native';
 
-import { 
-    Theme 
+import {
+    Theme
 } from '../../constants'
 
 export const styles = StyleSheet.create({
@@ -11,19 +11,32 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#fff"
     },
-    addBtnStyle:{
+    addBtnStyle: {
         flexDirection: 'row',
         justifyContent: 'center',
-        padding:10,
+        padding: 10,
         backgroundColor: '#555',
-        width:'100%'        
+        width: '100%'
     },
-    Btntext:{
+    Btntext: {
         fontSize: 20,
         textAlign: "center",
-        color:'#fff'        
+        color: '#fff'
     },
-    RoundBtn:{
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: "#00BCD4",
+        height: 300,
+        width: '80%',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#fff',
+        marginTop: 80,
+        marginLeft: 40,
+
+    },
+    RoundBtn: {
         position: "absolute",
         right: 15,
         bottom: 15,
