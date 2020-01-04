@@ -6,45 +6,25 @@ import {
   Alert,
   Button
 } from 'react-native';
-// import TimeTableView, { genTimeBlock } from 'react-native-timetable';
+
 import TimeTableView, { genTimeBlock } from '../../../components/STimetable';
 const events_data = [
   {
     title: "Interview",
     startTime: genTimeBlock("MON", 5),
-    endTime: genTimeBlock("MON", 6, 50),
+    endTime: genTimeBlock("MON", 9, 50),
     location: "interview room",
     extra_descriptions: ["Yuri"],
   },
 
   {
-    title: "Meeting",
-    startTime: genTimeBlock("MON", 8),
-    endTime: genTimeBlock("MON", 8, 60),
-    location: "Lab 404",
-    extra_descriptions: ["Einstein"],
-  },
-  {
     title: "Interview",
     startTime: genTimeBlock("WED", 9),
-    endTime: genTimeBlock("WED", 9, 50),
+    endTime: genTimeBlock("WED", 12, 50),
     location: "Lab 404",
     extra_descriptions: ["Einstein"],
   },
-  {
-    title: "Mandarin",
-    startTime: genTimeBlock("TUE", 6),
-    endTime: genTimeBlock("TUE", 8, 50),
-    location: "Language Center",
-    extra_descriptions: ["Chen"],
-  },
 
-  {
-    title: "Club Activity",
-    startTime: genTimeBlock("THU", 8),
-    endTime: genTimeBlock("THU", 10, 50),
-    location: "Activity Center",
-  },
 
 ];
 

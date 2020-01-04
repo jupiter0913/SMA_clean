@@ -23,23 +23,32 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         color: '#fff'
     },
-    modal: {
+
+    modalTimePicker: {
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: "#00BCD4",
-        height: 300,
-        width: '80%',
+        flexDirection:'row'
+    },
+
+    modal: {
+        // alignItems: 'center',
+        backgroundColor: "#c9c9c9",
+        height: 500,
+        width: 380,
         borderRadius: 10,
         borderWidth: 1,
         borderColor: '#fff',
-        marginTop: 80,
-        marginLeft: 40,
 
+    },
+    modalBtn: {
+        position: 'absolute',
+        margin: 16,
+        width:350,
+        bottom: 10,
     },
     RoundBtn: {
         position: "absolute",
         right: 15,
-        bottom: 15,
+        bottom: 40,
         padding: 2
     }
 

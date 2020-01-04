@@ -5,7 +5,7 @@ import React, {
 
 import {
     View,
-    TextInput
+    TextInput,
 } from 'react-native';
 
 import {

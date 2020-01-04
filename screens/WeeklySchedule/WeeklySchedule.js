@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react';
+
+import ModalDialog from './ModalDialog';
 
 import {
     View,
     Dimensions,
     Text,
-    Modal,
+    TouchableOpacity,
+    Icon,
     Button
 } from 'react-native';
 
@@ -20,76 +23,66 @@ import {
 import SEventCalendar from '../../components/SDaySchedule'
 
 let { width } = Dimensions.get('window')
-this.state = {
+state = {
     events: [
-        { start: '2019-12-06 22:30:00', end: '2019-12-06 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-07 01:00:00', end: '2019-12-07 02:00:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2019-12-26 22:30:00', end: '2019-12-26 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2019-12-27 01:00:00', end: '2019-12-27 02:00:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-09 03:10:00', end: '2019-12-09 03:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-09 00:10:00', end: '2019-12-09 01:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
         { start: '2019-12-10 12:10:00', end: '2019-12-10 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' }
     ]
 }
 
-_eventTapped = (event) => {
-    alert(JSON.stringify(event))
-}
+// _eventTapped = (event) => {
+//     alert(JSON.stringify(event))
+// }
+
+const LoginButton = () => (
+    <TouchableOpacity >
+      <Icon
+        family="Entypo"
+        size={16}
+        name="user"
+        // color={theme.COLORS[isWhite ? 'WHITE' : 'WHITE']}
+      />
+    </TouchableOpacity>
+  );
+
+
 
 export const WeeklySchedule = props => {
+    const [getModalDialogStatus, setModalDialogStatue] = useState(false);
+
+    const handleClickSRoundButton = () => {
+        setModalDialogStatue(true);
+    }
+
+    const closeModalDialog = () => {
+        setModalDialogStatue(false);
+    }
+
     return (
 
         <View style={styles.container}>
-            <View style={styles.addBtnStyle}>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>M</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>T</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>W</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>TH</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>F</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>S</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={styles.Btntext}>SU</Text>
-                </SRoundButton>
-                {/* <LoginButton key='login-loacation' />   
-      <Text key='login-user' color='white'>Jim</Text> */}
-            </View>
-
-            <View style={{ flex: 1, marginTop: 20 }}>
+            <ModalDialog isVisible={getModalDialogStatus} closeEvent={closeModalDialog} />
+            <View style={{ flex:1}}>
                 <SEventCalendar
                     style={styles.eventCalendar}
-                    eventTapped={this._eventTapped.bind(this)}
-                    events={this.state.events}
+                    // eventTapped={_eventTapped.bind(this)}
+                    eventTapped={handleClickSRoundButton}
+                    events={state.events}
                     width={width}
                     numberOfDay={60}
-                    initDate={'2019-12-07'}
+                    initDate={'2019-12-27'}
                     scrollToFirst
                 />
                 <View style={styles.RoundBtn}>
-                    {/* <Modal
-                        animationType={"fade"}
-                        transparent={false}
-                        visible={this.state.isVisible}
-                        onRequestClose={() => { console.log("Modal has been closed.") }}>
-                        <View style={styles.modal}>
-                            <Text style={styles.text}>Modal is open!</Text>
-                            <Button title="Click To Close Modal" onPress={() => {
-                                this.setState({ isVisible: !this.state.isVisible })
-                            }} />
-                        </View>
-                    </Modal> */}
-                    <SRoundButton>
+                    <SRoundButton onPress={handleClickSRoundButton}>
                         <Text style={styles.Btntext}>+</Text>
                     </SRoundButton>
+                </View>
+                <View>
+                    <Button color="#0e0e0e" title="FINISH" onPress={() => props.navigation.navigate('Schedule')}></Button>
                 </View>
             </View>
         </View>

@@ -5,7 +5,7 @@ const calendarHeight = 2400
 // const eventPaddingLeft = 4
 const leftMargin = 50 - 1
 
-export default function styleConstructor (
+export default function styleConstructor(
   theme = {}
 ) {
   let style = {
@@ -89,6 +89,20 @@ export default function styleConstructor (
       backgroundColor: 'red',
       ...theme.line
     },
+
+    addBtnStyle: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      padding: 10,
+      backgroundColor: '#555',
+      width: '100%'
+    },
+    Btntext: {
+      fontSize: 20,
+      textAlign: "center",
+      color: '#fff'
+    },
+
     timeLabel: {
       position: 'absolute',
       left: 15,

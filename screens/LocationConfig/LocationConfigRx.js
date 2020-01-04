@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
         fetchLocationType: fetchLocationTypeAsync,
         fetchAddresses: fetchAddressesAsync,
         setLocationType: setLocationTypeAsync,
-        addEmptyLocation: addEmptyLocationAsync ,
+        addEmptyLocation: addEmptyLocationAsync,
         removeLocation: removeLocationAsync
     };
     return bindActionCreators(actions, dispatch);

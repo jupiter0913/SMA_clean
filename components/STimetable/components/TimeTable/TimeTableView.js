@@ -11,7 +11,7 @@ import Events from '../Events/Events';
 import Header from '../Header/Header';
 import styles from './TimeTableView.styles';
 
-export const TIME_LABELS_COUNT = 24;
+export const TIME_LABELS_COUNT = 25;
 
 export default class TimeTableView extends Component {
   constructor(props) {
@@ -62,6 +62,7 @@ export default class TimeTableView extends Component {
     const { currentMoment } = this.state;
     // const dates = this.prepareDates(currentMoment, numberOfDays);
     const date = moment(currentMoment);
+    const { format24h } = this.props;
 
     return (
       <View style={styles.container}>
@@ -76,11 +77,34 @@ export default class TimeTableView extends Component {
         <ScrollView ref={this.props.scrollViewRef}>
           <View style={styles.scrollViewContent}>
             <View style={styles.timeColumn}>
-              {this.times.map(time => (
+              {/* {this.times.map(time => (
                 <View key={time} style={styles.timeLabel}>
                   <Text style={styles.timeText}>{time === 12 ? 12 : time % 12}</Text>
                 </View>
-              ))}
+              ))} */}
+              {this.times.map((time) => {
+                let timeText
+                if (time === 0) {
+                  timeText = ``
+                } else if (time < 12) {
+                  timeText = !format24h ? `${time} AM` : time
+                } else if (time === 12) {
+                  timeText = !format24h ? `${time} PM` : time
+                } else if (time === 24) {
+                  timeText = !format24h ? `12 AM` : 0
+                } else {
+                  timeText = !format24h ? `${time - 12} PM` : time
+                }
+                // const { width, styles } = this.props
+                return [
+                  <Text
+                    key={`timeLabel${time}`}
+                    style={[styles.timeLabel, { top:  time + 25 }]}
+                  >
+                    {timeText}
+                  </Text>,
+                ]
+              })}
             </View>
             <View key={date} style={styles.eventsContainer}>
               <Events

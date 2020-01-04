@@ -14,6 +14,11 @@ import styleConstructor from './style'
 
 import DayView from './DayView'
 
+import {
+  SRoundButton
+} from '../../components'
+
+
 export default class EventCalendar extends React.Component {
   constructor(props) {
     super(props)
@@ -92,6 +97,29 @@ export default class EventCalendar extends React.Component {
             <Image source={require('./forward.png')} style={this.styles.arrow} />
           </TouchableOpacity>
         </View> */}
+         <View style={this.styles.addBtnStyle}>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext} onPress={() => this._goToPage(this.state.index + 1)}>M</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext} onPress={() => this._goToPage(this.state.index - 1)}>T</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext}>W</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext}>TH</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext}>F</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext}>S</Text>
+                </SRoundButton>
+                <SRoundButton>
+                    <Text style={this.styles.Btntext}>SU</Text>
+                </SRoundButton>
+            </View>
         <VirtualizedList
           ref='calendar'
           windowSize={2}
