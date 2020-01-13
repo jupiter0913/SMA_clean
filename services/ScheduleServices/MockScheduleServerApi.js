@@ -19,7 +19,8 @@ import {
 class MockScheduleApi {
 
     constructor() {
-        this.scheduleType = ScheduleType.MONTH;
+        // this.scheduleType = ScheduleType.MONTH;
+        this.scheduleType = ScheduleType.WEEK;
     }
 
     getScheduleType = ({ accountId }) => {
