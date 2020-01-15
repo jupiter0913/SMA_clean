@@ -94,7 +94,7 @@ export default function styleConstructor(
       flexDirection: 'row',
       justifyContent: 'center',
       padding: 10,
-      backgroundColor: '#555',
+      backgroundColor: '#d4d4d4',
       width: '100%'
     },
     Btntext: {
