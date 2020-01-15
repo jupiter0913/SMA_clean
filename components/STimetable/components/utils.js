@@ -28,14 +28,7 @@ const genDayOfWeek = (DayOfWeekString) => {
     'fri': '05',
     'sat': '06',
     'sun': '07',
-    '월': '01',
-    '화': '02',
-    '수': '03',
-    '목': '04',
-    '금': '05',
-    '토': '06',
   };
-
   return new Date(`2019-07-${str2numberString[DayOfWeekString.toLowerCase()]}T00:00:00`);
 };
 
