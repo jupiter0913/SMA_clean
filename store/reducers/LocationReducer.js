@@ -1,10 +1,10 @@
 import { fromJS } from 'immutable';
-import * as actions from '../actions';
+import * as actions from '../actions/LocationActions';
 
 import { 
     // LocationType, 
     GetLocationType 
-} from '../../constants'
+} from '../../constants/LocationType'
 
 const initialState = {
     busy: false,

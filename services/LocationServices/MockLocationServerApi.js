@@ -6,11 +6,11 @@
 import { 
     LocationType,
     GetLocationType
-} from '../constants'
+} from '../../constants'
 
 import {
     delay
-} from '../utils'
+} from '../../utils'
 
 /**
  * Mock Server, the data stored here is pretend database data
