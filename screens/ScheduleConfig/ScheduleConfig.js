@@ -88,10 +88,10 @@ class Schedule extends React.Component {
           }
         </View>
         <View>
-          <Button color="#0e0e0e" title="change weeklly schedule" onPress={() => this.props.navigation.navigate('WeeklySchedule')}></Button>
+          <Button color={Theme.COLORS.SELECTED} title="change weeklly schedule" onPress={() => this.props.navigation.navigate('WeeklySchedule')}></Button>
         </View>
       </View>
-    )
+    ) 
   }
 }
 

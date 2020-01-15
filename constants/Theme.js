@@ -3,7 +3,8 @@ export default {
     DEFAULT: '#DCDCDC',
     PRIMARY: '#1c1c1c',
     SECONDARY: "#ff2500",
-    UNSELECTED: "#808080",
+    SELECTED: "#505050",
+    UNSELECTED: "#a2a2a2",
 
     DISABLED_TEXT: "#a1a1a1",
 

@@ -1,74 +1,73 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
   View,
   Alert,
   Button
 } from 'react-native';
 
-import TimeTableView, { genTimeBlock } from '../../../components/STimetable';
-const events_data = [
-  {
-    title: "Interview",
-    startTime: genTimeBlock("MON", 5),
-    endTime: genTimeBlock("MON", 9, 50),
-    location: "interview room",
-    extra_descriptions: ["Yuri"],
-  },
+import {
+  WeekCalendarViewStyle
+} from './style'
 
-  {
-    title: "Interview",
-    startTime: genTimeBlock("WED", 9),
-    endTime: genTimeBlock("WED", 12, 50),
-    location: "Lab 404",
-    extra_descriptions: ["Einstein"],
-  },
+import WeekView, { addLocale } from 'react-native-week-view';
 
+addLocale('fr', {
+  months: 'January_February_March_April_may_June__July_August_September_October_November_December'.split('_'),
+  monthsShort: 'Jan._Feb._Mar._Apr._May._Jun._Jul._Aug._Sep._Oct._Nov._Dec.'.split('_'),
+  weekdays: 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_'),
+  weekdaysShort: 'Sun._Mon._Tue._Wed._Thu._Fri._Sat.'.split('_'),
+});
 
-];
+selectedDate = new Date();
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.numOfDays = 7;
-    this.pivotDate = genTimeBlock('mon');
+generateDates = (hours, minutes) => {
+  const date = new Date();
+  date.setHours(date.getHours() + hours);
+  if (minutes != null) {
+    date.setMinutes(minutes);
   }
-
-  scrollViewRef = (ref) => {
-    this.timetableRef = ref;
-  };
-
-  onEventPress = (evt) => {
-    Alert.alert("onEventPress", JSON.stringify(evt));
-  };
-
-  render() {
-
-    return (
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={styles.container}>
-          <TimeTableView
-            scrollViewRef={this.scrollViewRef}
-            events={events_data}
-            pivotTime={1}
-            pivotDate={this.pivotDate}
-            numberOfDays={this.numOfDays}
-            onEventPress={this.onEventPress}
-            headerStyle={styles.headerStyle}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
+  return date;
 };
 
-const styles = StyleSheet.create({
-  headerStyle: {
-    backgroundColor: '#81E1B8'
+const events = [
+  {
+    id: 1,
+    description: 'Event 1',
+    startDate: this.generateDates(0),
+    endDate: this.generateDates(2),
+    color: 'blue',
   },
-  container: {
-    flex: 1,
-    backgroundColor: '#F8F8F8',
+  {
+    id: 2,
+    description: 'Event 2',
+    startDate: this.generateDates(1),
+    endDate: this.generateDates(4),
+    color: 'red',
   },
-});
+  {
+    id: 3,
+    description: 'Event 3',
+    startDate: this.generateDates(-5),
+    endDate: this.generateDates(-3),
+    color: 'green',
+  },
+];
+
+export default WeekSection = props => {
+
+  return (
+    <View style={WeekCalendarViewStyle.container}>
+      <WeekView
+        events={events}
+        selectedDate={this.selectedDate}
+        numberOfDays={3}
+        onEventPress={(event) => Alert.alert('eventId:' + event.id)}
+        headerStyle={WeekCalendarViewStyle.headerStyle}
+        formatDateHeader="MMM D"
+        locale="fr"
+      />
+      {/* <Button color="#0e0e0e" title="change weeklly schedule"></Button> */}
+    </View>
+  )
+
+}

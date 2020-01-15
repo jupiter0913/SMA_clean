@@ -31,7 +31,7 @@ const SButtonGroupItem = props => {
                 disabled={ isDisabled }
                 color={
                     value === selectedItem ? 
-                        Theme.COLORS.PRIMARY : 
+                        Theme.COLORS.SELECTED : 
                         Theme.COLORS.UNSELECTED 
                 }
                 title={value}

@@ -20,6 +20,10 @@ import {
     styles,
 } from './style';
 
+import {
+    Theme
+} from '../../constants'
+
 import SEventCalendar from '../../components/SDaySchedule'
 
 let { width } = Dimensions.get('window')
@@ -82,7 +86,7 @@ export const WeeklySchedule = props => {
                     </SRoundButton>
                 </View>
                 <View>
-                    <Button color="#0e0e0e" title="FINISH" onPress={() => props.navigation.navigate('Schedule')}></Button>
+                    <Button color={Theme.COLORS.SELECTED} title="FINISH" onPress={() => props.navigation.navigate('Schedule')}></Button>
                 </View>
             </View>
         </View>
