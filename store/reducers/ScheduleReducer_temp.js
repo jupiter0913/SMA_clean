@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
 import * as actions from '../actions/ScheduleActions';
 
-import { 
-    GetScheduleType 
+import {
+    GetScheduleType
 } from '../../constants/ScheduleType'
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
     scheduleType: null,
 };
 
-const scheduleReducer = ( prevState = fromJS(initialState), action ) => {
+const scheduleReducer = (prevState = fromJS(initialState), action) => {
     switch (action.type) {
 
         /*
@@ -27,7 +27,7 @@ const scheduleReducer = ( prevState = fromJS(initialState), action ) => {
                 .set('failReason', null);
         }
 
-        case actions.SET_SCHEDULE_TYPE_FINISHED: 
+        case actions.SET_SCHEDULE_TYPE_FINISHED:
         case actions.FETCH_SCHEDULE_TYPE_FINISHED: {
             try {
                 let type = GetScheduleType(action.scheduleType)
