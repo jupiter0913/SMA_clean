@@ -78,6 +78,7 @@ const hashString = (s) => {
 const colorGenerator = (num) => {
   const color_list = [
     // apple calendar color
+    'rgba(200,200,200,1)',
     'rgba(246,206,218,1)',
     'rgba(250,227,209,1)',
     'rgba(248,238,207,1)',
