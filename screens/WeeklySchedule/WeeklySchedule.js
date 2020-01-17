@@ -43,14 +43,14 @@ state = {
 
 const LoginButton = () => (
     <TouchableOpacity >
-      <Icon
-        family="Entypo"
-        size={16}
-        name="user"
+        <Icon
+            family="Entypo"
+            size={16}
+            name="user"
         // color={theme.COLORS[isWhite ? 'WHITE' : 'WHITE']}
-      />
+        />
     </TouchableOpacity>
-  );
+);
 
 
 
@@ -69,7 +69,7 @@ export const WeeklySchedule = props => {
 
         <View style={styles.container}>
             <ModalDialog isVisible={getModalDialogStatus} closeEvent={closeModalDialog} />
-            <View style={{ flex:1}}>
+            <View style={{ flex: 1 }}>
                 <SEventCalendar
                     style={styles.eventCalendar}
                     // eventTapped={_eventTapped.bind(this)}

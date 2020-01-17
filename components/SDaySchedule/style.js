@@ -97,8 +97,13 @@ export default function styleConstructor(
       backgroundColor: '#d4d4d4',
       width: '100%'
     },
-    Btntext: {
-      fontSize: 20,
+    BtnUnselectedText: {
+      fontSize: 24,
+      textAlign: "center",
+      color: '#000'
+    },
+    BtnSelectedText: {
+      fontSize: 24,
       textAlign: "center",
       color: '#fff'
     },

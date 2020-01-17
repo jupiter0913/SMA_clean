@@ -1,6 +1,7 @@
 export * from './STextInput'
 export * from './SText'
 export * from './SRoundButton'
+export * from './SRoundWeekButton'
 export * from './SButtonGroup'
 export * from './SButton'
 export * from './SAnimatedFlatList'

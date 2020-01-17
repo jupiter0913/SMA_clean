@@ -15,7 +15,7 @@ import styleConstructor from './style'
 import DayView from './DayView'
 
 import {
-  SRoundButton
+  SRoundWeekButton
 } from '../../components'
 
 
@@ -25,7 +25,14 @@ export default class EventCalendar extends React.Component {
     this.styles = styleConstructor(props.styles)
     this.state = {
       date: moment(this.props.initDate),
-      index: this.props.size
+      index: this.props.size,
+      monSelected: true,
+      tueSelected: false,
+      wedSelected: false,
+      thuSelected: false,
+      friSelected: false,
+      satSelected: false,
+      sunSelected: false,
     }
   }
 
@@ -78,6 +85,88 @@ export default class EventCalendar extends React.Component {
     this.setState({ index, date })
   }
 
+  btnSelectedEvent(date) {
+    switch (date) {
+      case 'mon':
+        this.setState({
+          monSelected: true,
+          tueSelected: false,
+          wedSelected: false,
+          thuSelected: false,
+          friSelected: false,
+          satSelected: false,
+          sunSelected: false
+        });
+        break;
+      case 'tue':
+        this.setState({
+          monSelected: false,
+          tueSelected: true,
+          wedSelected: false,
+          thuSelected: false,
+          friSelected: false,
+          satSelected: false,
+          sunSelected: false
+        });
+        break;
+      case 'wed':
+        this.setState({
+          monSelected: false,
+          tueSelected: false,
+          wedSelected: true,
+          thuSelected: false,
+          friSelected: false,
+          satSelected: false,
+          sunSelected: false
+        });
+        break;
+      case 'thu':
+        this.setState({
+          monSelected: false,
+          tueSelected: false,
+          wedSelected: false,
+          thuSelected: true,
+          friSelected: false,
+          satSelected: false,
+          sunSelected: false
+        });
+        break;
+      case 'fri':
+        this.setState({
+          monSelected: false,
+          tueSelected: false,
+          wedSelected: false,
+          thuSelected: false,
+          friSelected: true,
+          satSelected: false,
+          sunSelected: false
+        });
+        break;
+      case 'sat':
+        this.setState({
+          monSelected: false,
+          tueSelected: false,
+          wedSelected: false,
+          thuSelected: false,
+          friSelected: false,
+          satSelected: true,
+          sunSelected: false
+        });
+        break;
+      case 'sun':
+        this.setState({
+          monSelected: false,
+          tueSelected: false,
+          wedSelected: false,
+          thuSelected: false,
+          friSelected: false,
+          satSelected: false,
+          sunSelected: true
+        });
+        break;
+    }
+  }
+
   render() {
     const {
       width,
@@ -88,38 +177,57 @@ export default class EventCalendar extends React.Component {
     } = this.props
     return (
       <View style={[this.styles.container, { width }]}>
-        {/* <View style={this.styles.header}>
-          <TouchableOpacity onPress={() => this._goToPage(this.state.index - 1)}>
-            <Image source={require('./back.png')} style={this.styles.arrow} />
-          </TouchableOpacity>
-          <Text style={this.styles.headerText}>{this.state.date.format(formatHeader || 'DD MMMM YYYY')}</Text>
-          <TouchableOpacity onPress={() => this._goToPage(this.state.index + 1)}>
-            <Image source={require('./forward.png')} style={this.styles.arrow} />
-          </TouchableOpacity>
-        </View> */}
-         <View style={this.styles.addBtnStyle}>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext} onPress={() => this._goToPage(this.state.index + 1)}>M</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext} onPress={() => this._goToPage(this.state.index - 1)}>T</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext}>W</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext}>TH</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext}>F</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext}>S</Text>
-                </SRoundButton>
-                <SRoundButton>
-                    <Text style={this.styles.Btntext}>SU</Text>
-                </SRoundButton>
-            </View>
+        <View style={this.styles.addBtnStyle}>
+          <SRoundWeekButton selected={this.state.monSelected} onPress={() => this.btnSelectedEvent('mon')}>
+            {this.state.monSelected ?
+              <Text style={this.styles.BtnSelectedText}>M</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>M</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.tueSelected} onPress={() => this.btnSelectedEvent('tue')}>
+            {this.state.tueSelected ?
+              <Text style={this.styles.BtnSelectedText}>T</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>T</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.wedSelected} onPress={() => this.btnSelectedEvent('wed')}>
+            {this.state.wedSelected ?
+              <Text style={this.styles.BtnSelectedText}>W</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>W</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.thuSelected} onPress={() => this.btnSelectedEvent('thu')}>
+            {this.state.thuSelected ?
+              <Text style={this.styles.BtnSelectedText}>TH</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>TH</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.friSelected} onPress={() => this.btnSelectedEvent('fri')}>
+            {this.state.friSelected ?
+              <Text style={this.styles.BtnSelectedText}>F</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>F</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.satSelected} onPress={() => this.btnSelectedEvent('sat')}>
+            {this.state.satSelected ?
+              <Text style={this.styles.BtnSelectedText}>S</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>S</Text>
+            }
+          </SRoundWeekButton>
+          <SRoundWeekButton selected={this.state.sunSelected} onPress={() => this.btnSelectedEvent('sun')}>
+            {this.state.sunSelected ?
+              <Text style={this.styles.BtnSelectedText}>SU</Text>
+              :
+              <Text style={this.styles.BtnUnselectedText}>SU</Text>
+            }
+          </SRoundWeekButton>
+        </View>
         <VirtualizedList
           ref='calendar'
           windowSize={2}
@@ -142,7 +250,6 @@ export default class EventCalendar extends React.Component {
           {...virtualizedListProps}
         />
       </View>
-
     )
   }
 }
