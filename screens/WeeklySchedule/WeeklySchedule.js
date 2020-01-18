@@ -82,12 +82,10 @@ export const WeeklySchedule = props => {
             <View style={{ flex: 1 }}>
                 <SEventCalendar
                     style={styles.eventCalendar}
-                    // eventTapped={_eventTapped.bind(this)}
                     eventTapped={handleClickSRoundButton}
                     events={state.events}
                     width={width}
                     numberOfDay={60}
-                    // initDate={'2020-01-27'}
                     scrollToFirst
                 />
                 <View style={styles.RoundBtn}>

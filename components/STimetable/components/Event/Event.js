@@ -10,7 +10,7 @@ const Event = ({ event, onPress, style }) => {
   event.extra_descriptions = event.extra_descriptions || [];
   return (
     <TouchableOpacity
-      onPress={() => onPress(event)}
+      // onPress={() => onPress(event)}
       style={[styles.item, style, {
         backgroundColor: event.color,
       }]}
