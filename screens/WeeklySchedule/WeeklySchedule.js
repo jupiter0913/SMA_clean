@@ -29,11 +29,21 @@ import SEventCalendar from '../../components/SDaySchedule'
 let { width } = Dimensions.get('window')
 state = {
     events: [
-        { start: '2019-12-26 22:30:00', end: '2019-12-26 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-27 01:00:00', end: '2019-12-27 02:00:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-09 03:10:00', end: '2019-12-09 03:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-09 00:10:00', end: '2019-12-09 01:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
-        { start: '2019-12-10 12:10:00', end: '2019-12-10 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' }
+        { start: '2020-01-12 22:30:00', end: '2020-01-12 23:30:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-13 01:00:00', end: '2020-01-13 04:00:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-14 03:10:00', end: '2020-01-14 03:40:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-15 00:10:00', end: '2020-01-15 01:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-16 12:10:00', end: '2020-01-16 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-17 12:10:00', end: '2020-01-17 13:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-18 12:10:00', end: '2020-01-18 15:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-19 12:10:00', end: '2020-01-19 16:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-20 12:10:00', end: '2020-01-20 14:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-21 12:10:00', end: '2020-01-21 15:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-22 12:10:00', end: '2020-01-22 20:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-23 12:10:00', end: '2020-01-23 21:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-24 12:10:00', end: '2020-01-24 16:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-25 12:10:00', end: '2020-01-25 14:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' },
+        { start: '2020-01-26 12:10:00', end: '2020-01-26 15:45:00', title: 'Dr. Mariana Joseph', summary: '3412 Piedmont Rd NE, GA 3032' }
     ]
 }
 
@@ -77,7 +87,7 @@ export const WeeklySchedule = props => {
                     events={state.events}
                     width={width}
                     numberOfDay={60}
-                    initDate={'2019-12-27'}
+                    // initDate={'2020-01-27'}
                     scrollToFirst
                 />
                 <View style={styles.RoundBtn}>

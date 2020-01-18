@@ -40,31 +40,38 @@ export default function styleConstructor(
     },
     event: {
       position: 'absolute',
-      backgroundColor: '#F0F4FF',
-      opacity: 0.8,
-      borderColor: '#DDE5FD',
-      borderWidth: 1,
+      backgroundColor: '#CCC',
+      opacity: 1,
+      borderColor: '#999',
+      borderWidth: 3,
       borderRadius: 5,
-      paddingLeft: 4,
       minHeight: 25,
       flex: 1,
-      paddingTop: 5,
-      paddingBottom: 0,
-      flexDirection: 'column',
+      padding: 5,
       alignItems: 'flex-start',
       overflow: 'hidden',
+      flexDirection: 'row',
       ...theme.event
     },
+    eventSort: {
+      width: 20,
+      height: '100%',
+      justifyContent: 'center',
+      backgroundColor: '#505050',
+      alignItems:'center'
+    },
     eventTitle: {
-      color: '#615B73',
+      color: '#505050',
       fontWeight: '600',
       minHeight: 15,
+      paddingLeft: 5,
       ...theme.eventTitle
     },
     eventSummary: {
-      color: '#615B73',
+      color: '#505050',
       fontSize: 12,
       flexWrap: 'wrap',
+      paddingLeft: 5,
       ...theme.eventSummary
     },
     eventTimes: {
@@ -73,7 +80,21 @@ export default function styleConstructor(
       fontWeight: 'bold',
       color: '#615B73',
       flexWrap: 'wrap',
+      paddingLeft: 5,
       ...theme.eventTimes
+    },
+    eventCloseButtonView: {
+      height: '100%',
+      minWidth: 35,
+      justifyContent: 'center'
+    },
+    eventCloseButton: {
+      width: 30,
+      height: 30,
+      borderRadius: 30,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      backgroundColor: '#505050',
     },
     line: {
       height: 1,
@@ -116,6 +137,10 @@ export default function styleConstructor(
       fontFamily: 'space-mono',
       fontWeight: '500',
       ...theme.timeLabel
+    },
+    textStyle: {
+      color: 'white',
+      fontSize: 20
     }
   }
   return StyleSheet.create(style)
