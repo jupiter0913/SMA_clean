@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   timeLabel: {
     flex: -1,
     fontSize: 12,
-    height: ROW_HEIGHT,
+    height: ROW_HEIGHT -1,
   },
   timeText: {
     fontSize: 12,
