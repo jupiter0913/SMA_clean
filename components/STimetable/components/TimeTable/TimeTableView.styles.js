@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import { ROW_HEIGHT } from '../Events/Events.styles';
 import HeaderStyle from '../Header/Header.styles';
@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
   },
   timeLabel: {
     flex: -1,
-    fontSize:12,
-    height: ROW_HEIGHT,
+    fontSize: 12,
+    height: ROW_HEIGHT -1,
   },
   timeText: {
     fontSize: 12,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: HeaderStyle.title.width,
   },
   eventsContainer: {
-    width: SCREEN_WIDTH - HeaderStyle.title.width,
+    width: SCREEN_WIDTH - (HeaderStyle.title.width + HeaderStyle.column.borderLeftWidth * 2 * 7),
   },
 });
 

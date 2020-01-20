@@ -4,24 +4,38 @@ import {
 } from 'react-native';
 
 import {
-   Theme 
+  Theme 
 } from '../../../constants'
 
-export const WeekCalendarViewStyle = StyleSheet.create({
-
+export const scrollViewStyle = StyleSheet.create({
   container: {
+    //...StyleSheet.absoluteFillObject,
     flex: 1,
-    backgroundColor: '#FFF',
-    paddingTop: 22,
+    width: Dimensions.get('window').width - 10,
+    flexDirection: 'column',
+    marginBottom: 5
+    //backgroundColor: 'pink',
   },
-  headerStyle: {
-    backgroundColor: '#4286f4',
-  },
-  changeWeekButton: {
-    position: 'absolute',
-    bottom: 35,
-    backgroundColor: '#333333'
+  contentContainer: {
+    //flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
   }
+})
 
-});
-
+export const addBtnStyle = StyleSheet.create({
+  container: {
+    //alignSelf: 'flex-end',
+    //marginBottom: 5,
+    // marginTop: 5
+    position: "absolute",
+    right: 15,
+    bottom: 15,
+    padding: 2
+  },
+  text: {
+    color: Theme.COLORS.WHITE,
+    fontSize: 20
+  }
+})
