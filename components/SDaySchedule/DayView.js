@@ -18,12 +18,12 @@ const TEXT_LINE_HEIGHT = 17
 // const MIN_EVENT_TITLE_WIDTH = 20
 // const EVENT_PADDING_LEFT = 4
 
-function range (from, to) {
+function range(from, to) {
   return Array.from(Array(to), (_, i) => from + i)
 }
 
 export default class DayView extends React.PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props)
     const width = props.width - LEFT_MARGIN
     const packedEvents = populateEvents(props.events, width)
@@ -35,18 +35,18 @@ export default class DayView extends React.PureComponent {
     }
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     const width = nextProps.width - LEFT_MARGIN
     this.setState({
       packedEvents: populateEvents(nextProps.events, width)
     })
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.scrollToFirst && this.scrollToFirst()
   }
 
-  scrollToFirst () {
+  scrollToFirst() {
     setTimeout(() => {
       if (this.state && this.state._scrollY && this._scrollView) {
         this._scrollView.scrollTo({ x: 0, y: this.state._scrollY, animated: true })
@@ -55,19 +55,19 @@ export default class DayView extends React.PureComponent {
   }
 
   _renderRedLine() {
-      const offset = CALENDER_HEIGHT / 24
-      const { format24h } = this.props
-      const { width, styles } = this.props
-      const timeNowHour = moment().hour()
-      const timeNowMin = moment().minutes()
-      return (
-          <View key={`timeNow`}
-            style={[styles.lineNow, { top: offset * timeNowHour + offset * timeNowMin / 60, width: width - 20 }]}
-          />
+    const offset = CALENDER_HEIGHT / 24
+    const { format24h } = this.props
+    const { width, styles } = this.props
+    const timeNowHour = moment().hour()
+    const timeNowMin = moment().minutes()
+    return (
+      <View key={`timeNow`}
+        style={[styles.lineNow, { top: offset * timeNowHour + offset * timeNowMin / 60, width: width - 20 }]}
+      />
     )
   }
 
-  _renderLines () {
+  _renderLines() {
     const offset = CALENDER_HEIGHT / 24
     const { format24h } = this.props
 
@@ -106,7 +106,7 @@ export default class DayView extends React.PureComponent {
     })
   };
 
-  _renderTimeLabels () {
+  _renderTimeLabels() {
     const { styles } = this.props
     const offset = CALENDER_HEIGHT / 24
     return range(0, 24).map((item, i) => {
@@ -116,11 +116,11 @@ export default class DayView extends React.PureComponent {
     })
   }
 
-  _onEventTapped (event) {
-    this.props.eventTapped(event)
+  _onEventTapped(event) {
+    this.props.eventTapped(event);
   };
 
-  _renderEvents () {
+  _renderEvents() {
     const { styles } = this.props
     const { packedEvents } = this.state
     let events = packedEvents.map((event, i) => {
@@ -136,14 +136,17 @@ export default class DayView extends React.PureComponent {
       const numberOfLines = Math.floor(event.height / TEXT_LINE_HEIGHT)
       const formatTime = this.props.format24h ? 'HH:mm' : 'hh:mm A'
       return (
-        <View
+        <TouchableOpacity
           key={i}
           style={[styles.event, style]}
+          onPress={() => this._onEventTapped(this.props.events[event.index])}
         >
+          <TouchableOpacity style={styles.eventSort}><Text style={styles.textStyle}>A</Text></TouchableOpacity>
           {this.props.renderEvent ? this.props.renderEvent(event) : (
             <TouchableOpacity
               activeOpacity={0.5}
               onPress={() => this._onEventTapped(this.props.events[event.index])}
+              style={{  width:'85%' }}
             >
               <Text numberOfLines={1} style={styles.eventTitle}>{event.title || 'Event'}</Text>
               {numberOfLines > 1
@@ -159,7 +162,10 @@ export default class DayView extends React.PureComponent {
                 : null}
             </TouchableOpacity>
           )}
-        </View>
+          <View style={[styles.eventCloseButtonView]}>
+            <TouchableOpacity style={[styles.eventCloseButton]}><Text style={styles.textStyle}>×</Text></TouchableOpacity>
+          </View>
+        </TouchableOpacity>
       )
     })
 
@@ -172,7 +178,7 @@ export default class DayView extends React.PureComponent {
     )
   }
 
-  render () {
+  render() {
     const { styles } = this.props
     return (
       <ScrollView ref={ref => (this._scrollView = ref)}

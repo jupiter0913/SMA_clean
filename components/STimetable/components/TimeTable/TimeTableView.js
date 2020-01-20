@@ -99,7 +99,7 @@ export default class TimeTableView extends Component {
                 return [
                   <Text
                     key={`timeLabel${time}`}
-                    style={[styles.timeLabel, { top:  time + 25 }]}
+                    style={[styles.timeLabel, { top: time + 25 }]}
                   >
                     {timeText}
                   </Text>,
@@ -118,6 +118,7 @@ export default class TimeTableView extends Component {
               />
             </View>
           </View>
+          <View style={{ height: 20 }}></View>
         </ScrollView>
       </View>
     );

@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
     },
     RoundBtn: {
         position: "absolute",
-        right: 15,
+        right: 2,
         bottom: 40,
         padding: 2
     }

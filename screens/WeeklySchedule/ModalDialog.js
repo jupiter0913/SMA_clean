@@ -3,8 +3,6 @@ import Modal from 'react-native-modals';
 import DatePicker from 'react-native-datepicker'
 import { View, Button, Text, TextInput } from 'react-native';
 import { styles } from './style';
-import { SText, STextInput } from '../../components'
-import cloneDeep from 'lodash/cloneDeep'
 
 const ModalDialog = props => {
 
@@ -20,7 +18,6 @@ const ModalDialog = props => {
     const handleChangeDate = (date) => {
         setDate(date);
     }
-
     const handleChangeDate1 = (date) => {
         setDate1(date);
     }
@@ -30,7 +27,6 @@ const ModalDialog = props => {
     const handleChangeAddress1 = (address) => {
         setAddress1(address);
     }
-
 
     return (
         <Modal
@@ -51,17 +47,18 @@ const ModalDialog = props => {
                             format="HH:mm"
                             confirmBtnText="Confirm"
                             cancelBtnText="Cancel"
+                            iconSource={require('../../assets/icons/clock.png')}
                             customStyles={{
                                 dateIcon: {
                                     position: 'absolute',
                                     right: 5,
-                                    top: 4,
-                                    marginRight: 10
+                                    top: 10,
+                                    width: 20,
+                                    height: 20
                                 },
                                 dateInput: {
-                                    marginRight: 10
+                                    backgroundColor: 'white'
                                 }
-                                // ... You can check the source to find the other keys.
                             }}
                             onDateChange={handleChangeDate}
                         />
@@ -76,17 +73,18 @@ const ModalDialog = props => {
                             format="HH:mm"
                             confirmBtnText="Confirm"
                             cancelBtnText="Cancel"
+                            iconSource={require('../../assets/icons/clock.png')}
                             customStyles={{
                                 dateIcon: {
                                     position: 'absolute',
                                     right: 5,
-                                    top: 4,
-                                    marginRight: 10
+                                    top: 10,
+                                    width: 20,
+                                    height: 20
                                 },
                                 dateInput: {
-                                    marginRight: 10
+                                    backgroundColor: 'white'
                                 }
-                                // ... You can check the source to find the other keys.
                             }}
                             onDateChange={handleChangeDate1}
                         />
